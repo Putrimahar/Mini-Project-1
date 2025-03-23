@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.putrimaharani0087.miniproject1.navigation.SetupNavGraph
 import com.putrimaharani0087.miniproject1.ui.theme.MiniProject1Theme
 
 class MainActivity : ComponentActivity() {
@@ -28,7 +29,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MiniProject1Theme {
-                MainScreen()
+                SetupNavGraph()
             }
         }
     }
