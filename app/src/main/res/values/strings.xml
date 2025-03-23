@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Mini Project 1</string>
+    <string name="app_intro">Rumus kecepatan, jarak, dan waktu ini membantu dalam menganalisis
+    pergerakan suatu objek. Cobalah sekarang!</string>
 </resources>
