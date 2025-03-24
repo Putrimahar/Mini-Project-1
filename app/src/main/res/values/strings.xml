@@ -9,4 +9,8 @@
     <string name="menghitung_kecepatan">Menghitung Kecepatan</string>
     <string name="menghitung_jarak">Menghitung Jarak</string>
     <string name="menghitung_waktu">Menghitung Waktu</string>
+    <string name="hasilKecepatan_x">Hasil: \n%1$.2f km/jam</string>
+    <string name="hasilJarak_x">Hasil: \n%1$.2f km</string>
+    <string name="hasilWaktu_x">Hasil: \n%1$.2f jam</string>
+
 </resources>
