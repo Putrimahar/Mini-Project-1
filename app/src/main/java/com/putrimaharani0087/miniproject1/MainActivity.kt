@@ -33,6 +33,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -173,13 +174,13 @@ fun Opsi(navController: NavController) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenKecepatan(navController: NavController) {
-    var jarak by remember { mutableStateOf("") }
-    var jarakError by remember { mutableStateOf(false) }
+    var jarak by rememberSaveable { mutableStateOf("") }
+    var jarakError by rememberSaveable { mutableStateOf(false) }
 
-    var waktu by remember { mutableStateOf("") }
-    var waktuError by remember { mutableStateOf(false) }
+    var waktu by rememberSaveable { mutableStateOf("") }
+    var waktuError by rememberSaveable { mutableStateOf(false) }
 
-    var hasil by remember { mutableFloatStateOf(0f) }
+    var hasil by rememberSaveable { mutableFloatStateOf(0f) }
 
     Scaffold(
         topBar = {
@@ -272,13 +273,13 @@ fun ScreenKecepatan(navController: NavController) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenJarak(navController: NavController) {
-    var kecepatan by remember { mutableStateOf("") }
-    var kecepatanError by remember { mutableStateOf(false) }
+    var kecepatan by rememberSaveable { mutableStateOf("") }
+    var kecepatanError by rememberSaveable { mutableStateOf(false) }
 
-    var waktu by remember { mutableStateOf("") }
-    var waktuError by remember { mutableStateOf(false) }
+    var waktu by rememberSaveable { mutableStateOf("") }
+    var waktuError by rememberSaveable { mutableStateOf(false) }
 
-    var hasil by remember { mutableFloatStateOf(0f) }
+    var hasil by rememberSaveable { mutableFloatStateOf(0f) }
 
     Scaffold(
         topBar = {
@@ -371,13 +372,13 @@ fun ScreenJarak(navController: NavController) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenWaktu(navController: NavController) {
-    var jarak by remember { mutableStateOf("") }
-    var jarakError by remember { mutableStateOf(false) }
+    var jarak by rememberSaveable { mutableStateOf("") }
+    var jarakError by rememberSaveable { mutableStateOf(false) }
 
-    var kecepatan by remember { mutableStateOf("") }
-    var kecepatanError by remember { mutableStateOf(false) }
+    var kecepatan by rememberSaveable { mutableStateOf("") }
+    var kecepatanError by rememberSaveable { mutableStateOf(false) }
 
-    var hasil by remember { mutableFloatStateOf(0f) }
+    var hasil by rememberSaveable { mutableFloatStateOf(0f) }
 
     Scaffold(
         topBar = {
