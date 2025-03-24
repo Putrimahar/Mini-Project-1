@@ -17,8 +17,12 @@
     <string name="bagikan_hasilKecepatan">Jarak: %1$s km\nWaktu: %2$s jam\nKecepatan yang diperlukan: %3$.2f km/jam</string>
     <string name="bagikan_hasiljarak">Kecepatan: %1$s km/jam\nWaktu: %2$s jam\nJarak tempuh yang diperlukan: %3$.2f km</string>
     <string name="bagikan_hasilWaktu">Jarak: %1$s km\nKecepatan: %2$s km/jam\nWaktu tempuh yang diperlukan: %3$.2f jam</string>
-    <string name="tentang_rumus">Rumus</string>
-    <string name="penjelasan">rumus kecepatan itu bla bla</string>
+    <string name="tentang_rumus">Penjelasan</string>
+    <string name="isi_penjelasan">Gambar ini menunjukkan ilustrasi sebuah mobil yang bergerak dari titik A ke titik B di sepanjang jalur lurus. Selain itu, terdapat ikon jam yang menunjukkan waktu perjalanan.
+        \n- Mobil yang bergerak dari A ke B menunjukkan bahwa kendaraan memiliki jarak tempuh tertentu.
+        \n- Jam menunjukkan adanya waktu tempuh yang digunakan oleh mobil untuk berpindah posisi.
+        \n- Dengan mengetahui jarak dan waktu, kita bisa menghitung kecepatan menggunakan rumus di bawah ini.</string>
+    <string name="rumus">Kecepatan = Jarak/Waktu\nJarak = Kecepatan x Waktu\nWaktu = Jarak/Kecepatan</string>
     <string name="kembali">Kembali</string>
 
 
