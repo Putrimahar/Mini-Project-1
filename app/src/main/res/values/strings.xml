@@ -2,4 +2,11 @@
     <string name="app_name">Mini Project 1</string>
     <string name="app_intro">Rumus kecepatan, jarak, dan waktu ini membantu dalam menganalisis
     pergerakan suatu objek. Cobalah sekarang!</string>
+    <string name="jarak">Jarak</string>
+    <string name="waktu">Waktu</string>
+    <string name="kecepatan">Kecepatan</string>
+    <string name="hitung">Hitung</string>
+    <string name="menghitung_kecepatan">Menghitung Kecepatan</string>
+    <string name="menghitung_jarak">Menghitung Jarak</string>
+    <string name="menghitung_waktu">Menghitung Waktu</string>
 </resources>
