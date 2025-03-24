@@ -33,6 +33,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.putrimaharani0087.miniproject1.navigation.SetupNavGraph
 import com.putrimaharani0087.miniproject1.ui.theme.MiniProject1Theme
 
@@ -42,7 +44,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MiniProject1Theme {
-                SetupNavGraph()
+                val navController = rememberNavController()
+                SetupNavGraph(navController)
             }
         }
     }
@@ -50,7 +53,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavController) {
     Scaffold (
         topBar = {
             TopAppBar(
@@ -64,16 +67,16 @@ fun MainScreen() {
         }
     ) {
         innerPadding ->
-        ScreenContent(
-            Modifier.padding(innerPadding)
-        )
+        Column(modifier = Modifier.padding(innerPadding)) {
+            ScreenContent(navController)
+        }
     }
 }
 
 @Composable
-fun ScreenContent(modifier: Modifier = Modifier) {
+fun ScreenContent(navController: NavController) {
     Column(
-        modifier = modifier.fillMaxSize().padding(16.dp),
+        modifier = Modifier.fillMaxSize().padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
@@ -81,13 +84,13 @@ fun ScreenContent(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.fillMaxWidth()
         )
-        Opsi()
+        Opsi(navController)
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Opsi() {
+fun Opsi(navController: NavController) {
     var expanded by remember { mutableStateOf(false) }
     var selectedOption by remember { mutableStateOf("Pilih Rumus") }
 
@@ -122,6 +125,11 @@ fun Opsi() {
                     onClick = {
                         selectedOption = "Kecepatan"
                         expanded = false
+                        navController.navigate("kecepatan") {
+                            popUpTo("main") {
+                                inclusive = false
+                            }
+                        }
                     }
                 )
                 DropdownMenuItem(
@@ -129,6 +137,11 @@ fun Opsi() {
                     onClick = {
                         selectedOption = "Jarak"
                         expanded = false
+                        navController.navigate("Jarak") {
+                            popUpTo("main") {
+                                inclusive = false
+                            }
+                        }
                     }
                 )
                 DropdownMenuItem(
@@ -136,6 +149,11 @@ fun Opsi() {
                     onClick = {
                         selectedOption = "Waktu"
                         expanded = false
+                        navController.navigate("Waktu") {
+                            popUpTo("main") {
+                                inclusive = false
+                            }
+                        }
                     }
                 )
             }
@@ -149,6 +167,7 @@ fun Opsi() {
 @Composable
 fun MainScreenPreview() {
     MiniProject1Theme {
-        MainScreen()
+        val navController = rememberNavController()
+        MainScreen(navController)
     }
 }
