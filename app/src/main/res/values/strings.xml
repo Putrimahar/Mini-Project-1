@@ -19,6 +19,7 @@
     <string name="bagikan_hasilWaktu">Jarak: %1$s km\nKecepatan: %2$s km/jam\nWaktu tempuh yang diperlukan: %3$.2f jam</string>
     <string name="tentang_rumus">Rumus</string>
     <string name="penjelasan">rumus kecepatan itu bla bla</string>
+    <string name="kembali">Kembali</string>
 
 
 </resources>

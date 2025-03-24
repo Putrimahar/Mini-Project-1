@@ -30,7 +30,7 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController()) {
             ScreenWaktu(navController)
         }
         composable(route = Screen.Rumus.route) {
-            RumusScreen()
+            RumusScreen(navController)
         }
     }
 }
