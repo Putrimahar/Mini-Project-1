@@ -19,6 +19,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -28,6 +29,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -172,6 +174,7 @@ fun Opsi(navController: NavController) {
 fun ScreenKecepatan(navController: NavController) {
     var jarak by remember { mutableStateOf("") }
     var waktu by remember { mutableStateOf("") }
+    var hasil by remember { mutableFloatStateOf(0f) }
 
     Scaffold(
         topBar = {
@@ -230,11 +233,24 @@ fun ScreenKecepatan(navController: NavController) {
                 modifier = Modifier.fillMaxWidth()
             )
             Button(
-                onClick = {},
+                onClick = {
+                    hasil = hitungKecepatan(jarak.toFloat(), waktu.toFloat())
+                },
                 modifier = Modifier.padding(top = 8.dp),
                 contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
             ) {
                 Text(text = stringResource(R.string.hitung))
+            }
+            if (hasil != 0f) {
+                HorizontalDivider(
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    thickness = 1.dp
+                )
+                Text(
+                    text = stringResource(R.string.hasilKecepatan_x, hasil),
+                    style = MaterialTheme.typography.headlineSmall,
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
@@ -245,6 +261,7 @@ fun ScreenKecepatan(navController: NavController) {
 fun ScreenJarak(navController: NavController) {
     var kecepatan by remember { mutableStateOf("") }
     var waktu by remember { mutableStateOf("") }
+    var hasil by remember { mutableFloatStateOf(0f) }
 
     Scaffold(
         topBar = {
@@ -303,11 +320,24 @@ fun ScreenJarak(navController: NavController) {
                 modifier = Modifier.fillMaxWidth()
             )
             Button(
-                onClick = {},
+                onClick = {
+                    hasil = hitungJarak(kecepatan.toFloat(), waktu.toFloat())
+                },
                 modifier = Modifier.padding(top = 8.dp),
                 contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
             ) {
                 Text(text = stringResource(R.string.hitung))
+            }
+            if (hasil != 0f) {
+                HorizontalDivider(
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    thickness = 1.dp
+                )
+                Text(
+                    text = stringResource(R.string.hasilJarak_x, hasil),
+                    style = MaterialTheme.typography.headlineSmall,
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
@@ -318,6 +348,7 @@ fun ScreenJarak(navController: NavController) {
 fun ScreenWaktu(navController: NavController) {
     var jarak by remember { mutableStateOf("") }
     var kecepatan by remember { mutableStateOf("") }
+    var hasil by remember { mutableFloatStateOf(0f) }
 
     Scaffold(
         topBar = {
@@ -376,18 +407,40 @@ fun ScreenWaktu(navController: NavController) {
                 modifier = Modifier.fillMaxWidth()
             )
             Button(
-                onClick = {},
+                onClick = {
+                    hasil = hitungWaktu(jarak.toFloat(), kecepatan.toFloat())
+                },
                 modifier = Modifier.padding(top = 8.dp),
                 contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
             ) {
                 Text(text = stringResource(R.string.hitung))
             }
+            if (hasil != 0f) {
+                HorizontalDivider(
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    thickness = 1.dp
+                )
+                Text(
+                    text = stringResource(R.string.hasilWaktu_x, hasil),
+                    style = MaterialTheme.typography.headlineSmall,
+                    textAlign = TextAlign.Center
+                )
+            }
         }
     }
 }
 
+private fun hitungKecepatan(jarak: Float, waktu: Float): Float {
+    return jarak / waktu
+}
 
+private fun hitungJarak(kecepatan: Float, waktu: Float): Float {
+    return kecepatan * waktu
+}
 
+private fun hitungWaktu(jarak: Float, kecepatan: Float): Float {
+    return jarak / kecepatan
+}
 
 @Preview(showBackground = true)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
