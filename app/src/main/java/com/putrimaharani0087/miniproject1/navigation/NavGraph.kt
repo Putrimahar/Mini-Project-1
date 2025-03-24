@@ -18,7 +18,7 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController()) {
         startDestination = Screen.Home.route
     ) {
         composable(route = Screen.Home.route) {
-            MainScreen(navController = navController)
+            MainScreen(navController)
         }
         composable("kecepatan") {
             ScreenKecepatan(navController)
@@ -28,6 +28,9 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController()) {
         }
         composable("Waktu") {
             ScreenWaktu(navController)
+        }
+        composable(route = Screen.Rumus.route) {
+            RumusScreen()
         }
     }
 }
