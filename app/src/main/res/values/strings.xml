@@ -12,5 +12,6 @@
     <string name="hasilKecepatan_x">Hasil: \n%1$.2f km/jam</string>
     <string name="hasilJarak_x">Hasil: \n%1$.2f km</string>
     <string name="hasilWaktu_x">Hasil: \n%1$.2f jam</string>
+    <string name="input_invalid">Tidak Boleh Kosong</string>
 
 </resources>

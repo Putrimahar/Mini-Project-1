@@ -15,6 +15,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -173,7 +174,11 @@ fun Opsi(navController: NavController) {
 @Composable
 fun ScreenKecepatan(navController: NavController) {
     var jarak by remember { mutableStateOf("") }
+    var jarakError by remember { mutableStateOf(false) }
+
     var waktu by remember { mutableStateOf("") }
+    var waktuError by remember { mutableStateOf(false) }
+
     var hasil by remember { mutableFloatStateOf(0f) }
 
     Scaffold(
@@ -212,7 +217,9 @@ fun ScreenKecepatan(navController: NavController) {
                 value = jarak,
                 onValueChange = { jarak = it },
                 label = { Text(text = stringResource(R.string.jarak)) },
-                trailingIcon = { Text(text = "km") },
+                trailingIcon = { IconPicker(jarakError, "km") },
+                supportingText = { ErrorHint(jarakError) },
+                isError = jarakError,
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number,
@@ -224,7 +231,9 @@ fun ScreenKecepatan(navController: NavController) {
                 value = waktu,
                 onValueChange = { waktu = it },
                 label = { Text(text = stringResource(R.string.waktu)) },
-                trailingIcon = { Text(text = "jam") },
+                trailingIcon = { IconPicker(waktuError, "jam") },
+                supportingText = { ErrorHint(waktuError) },
+                isError = waktuError,
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number,
@@ -234,6 +243,10 @@ fun ScreenKecepatan(navController: NavController) {
             )
             Button(
                 onClick = {
+                    jarakError = (jarak == "" || jarak == "0")
+                    waktuError = (waktu == "" || waktu == "0")
+                    if (jarakError || waktuError) return@Button
+
                     hasil = hitungKecepatan(jarak.toFloat(), waktu.toFloat())
                 },
                 modifier = Modifier.padding(top = 8.dp),
@@ -260,7 +273,11 @@ fun ScreenKecepatan(navController: NavController) {
 @Composable
 fun ScreenJarak(navController: NavController) {
     var kecepatan by remember { mutableStateOf("") }
+    var kecepatanError by remember { mutableStateOf(false) }
+
     var waktu by remember { mutableStateOf("") }
+    var waktuError by remember { mutableStateOf(false) }
+
     var hasil by remember { mutableFloatStateOf(0f) }
 
     Scaffold(
@@ -299,7 +316,9 @@ fun ScreenJarak(navController: NavController) {
                 value = kecepatan,
                 onValueChange = { kecepatan = it },
                 label = { Text(text = stringResource(R.string.kecepatan)) },
-                trailingIcon = { Text(text = "km") },
+                trailingIcon = { IconPicker(kecepatanError, "km/jam") },
+                supportingText = { ErrorHint(kecepatanError) },
+                isError = kecepatanError,
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number,
@@ -311,7 +330,9 @@ fun ScreenJarak(navController: NavController) {
                 value = waktu,
                 onValueChange = { waktu = it },
                 label = { Text(text = stringResource(R.string.waktu)) },
-                trailingIcon = { Text(text = "jam") },
+                trailingIcon = { IconPicker(waktuError, "jam") },
+                supportingText = { ErrorHint(waktuError) },
+                isError = waktuError,
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number,
@@ -321,6 +342,10 @@ fun ScreenJarak(navController: NavController) {
             )
             Button(
                 onClick = {
+                    kecepatanError = (kecepatan == "" || kecepatan == "0")
+                    waktuError = (waktu == "" || waktu == "0")
+                    if (kecepatanError || waktuError) return@Button
+
                     hasil = hitungJarak(kecepatan.toFloat(), waktu.toFloat())
                 },
                 modifier = Modifier.padding(top = 8.dp),
@@ -347,7 +372,11 @@ fun ScreenJarak(navController: NavController) {
 @Composable
 fun ScreenWaktu(navController: NavController) {
     var jarak by remember { mutableStateOf("") }
+    var jarakError by remember { mutableStateOf(false) }
+
     var kecepatan by remember { mutableStateOf("") }
+    var kecepatanError by remember { mutableStateOf(false) }
+
     var hasil by remember { mutableFloatStateOf(0f) }
 
     Scaffold(
@@ -386,7 +415,9 @@ fun ScreenWaktu(navController: NavController) {
                 value = jarak,
                 onValueChange = { jarak = it },
                 label = { Text(text = stringResource(R.string.jarak)) },
-                trailingIcon = { Text(text = "km") },
+                trailingIcon = { IconPicker(jarakError, "km") },
+                supportingText = { ErrorHint(jarakError) },
+                isError = jarakError,
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number,
@@ -398,7 +429,9 @@ fun ScreenWaktu(navController: NavController) {
                 value = kecepatan,
                 onValueChange = { kecepatan = it },
                 label = { Text(text = stringResource(R.string.kecepatan)) },
-                trailingIcon = { Text(text = "km") },
+                trailingIcon = { IconPicker(kecepatanError, "km/jam") },
+                supportingText = { ErrorHint(kecepatanError) },
+                isError = kecepatanError,
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number,
@@ -408,6 +441,10 @@ fun ScreenWaktu(navController: NavController) {
             )
             Button(
                 onClick = {
+                    jarakError = (jarak == "" || jarak == "0")
+                    kecepatanError = (kecepatan == "" || kecepatan == "0")
+                    if (jarakError || kecepatanError) return@Button
+
                     hasil = hitungWaktu(jarak.toFloat(), kecepatan.toFloat())
                 },
                 modifier = Modifier.padding(top = 8.dp),
@@ -427,6 +464,22 @@ fun ScreenWaktu(navController: NavController) {
                 )
             }
         }
+    }
+}
+
+@Composable
+fun IconPicker(isError: Boolean, unit: String) {
+    if (isError) {
+        Icon(imageVector = Icons.Filled.Warning, contentDescription = null)
+    } else {
+        Text(text = unit)
+    }
+}
+
+@Composable
+fun ErrorHint(isError: Boolean) {
+    if (isError) {
+        Text(text = stringResource(R.string.input_invalid))
     }
 }
 
