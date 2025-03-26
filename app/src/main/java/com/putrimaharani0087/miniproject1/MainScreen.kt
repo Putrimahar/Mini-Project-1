@@ -103,7 +103,11 @@ fun ScreenContent(navController: NavController) {
 @Composable
 fun Opsi(navController: NavController) {
     var expanded by remember { mutableStateOf(false) }
-    var selectedOption by remember { mutableStateOf("Pilih Rumus") }
+    val defaultOption = stringResource(id = R.string.pilih_rumus)
+    var selectedOption by rememberSaveable { mutableStateOf(defaultOption) }
+    val kecepatanText = stringResource(id = R.string.kecepatan)
+    val jarakText = stringResource(id = R.string.jarak)
+    val waktuText = stringResource(id = R.string.waktu)
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -132,11 +136,11 @@ fun Opsi(navController: NavController) {
                 onDismissRequest = { expanded = false }
             ) {
                 DropdownMenuItem(
-                    text = { Text("Kecepatan") },
+                    text = {Text(text = kecepatanText)},
                     onClick = {
-                        selectedOption = "Kecepatan"
+                        selectedOption = kecepatanText
                         expanded = false
-                        navController.navigate("kecepatan") {
+                        navController.navigate("Kecepatan") {
                             popUpTo("main") {
                                 inclusive = false
                             }
@@ -144,9 +148,9 @@ fun Opsi(navController: NavController) {
                     }
                 )
                 DropdownMenuItem(
-                    text = { Text("Jarak") },
+                    text = {Text(text = jarakText)},
                     onClick = {
-                        selectedOption = "Jarak"
+                        selectedOption = jarakText
                         expanded = false
                         navController.navigate("Jarak") {
                             popUpTo("main") {
@@ -156,9 +160,9 @@ fun Opsi(navController: NavController) {
                     }
                 )
                 DropdownMenuItem(
-                    text = { Text("Waktu") },
+                    text = {Text(text = waktuText)},
                     onClick = {
-                        selectedOption = "Waktu"
+                        selectedOption = waktuText
                         expanded = false
                         navController.navigate("Waktu") {
                             popUpTo("main") {
@@ -184,6 +188,10 @@ fun ScreenKecepatan(navController: NavController) {
     var hasil by rememberSaveable { mutableFloatStateOf(0f) }
 
     val context = LocalContext.current
+
+    val kmText = stringResource(id = R.string.km)
+    val jamText = stringResource(id = R.string.jam)
+
 
     Scaffold(
         topBar = {
@@ -233,7 +241,7 @@ fun ScreenKecepatan(navController: NavController) {
                 value = jarak,
                 onValueChange = { jarak = it },
                 label = { Text(text = stringResource(R.string.jarak)) },
-                trailingIcon = { IconPicker(jarakError, "km") },
+                trailingIcon = { IconPicker(jarakError, kmText) },
                 supportingText = { ErrorHint(jarakError) },
                 isError = jarakError,
                 singleLine = true,
@@ -247,7 +255,7 @@ fun ScreenKecepatan(navController: NavController) {
                 value = waktu,
                 onValueChange = { waktu = it },
                 label = { Text(text = stringResource(R.string.waktu)) },
-                trailingIcon = { IconPicker(waktuError, "jam") },
+                trailingIcon = { IconPicker(waktuError, jamText) },
                 supportingText = { ErrorHint(waktuError) },
                 isError = waktuError,
                 singleLine = true,
@@ -312,6 +320,9 @@ fun ScreenJarak(navController: NavController) {
 
     val context = LocalContext.current
 
+    val kmjamText = stringResource(id = R.string.km_jam)
+    val jamText = stringResource(id = R.string.jam)
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -359,7 +370,7 @@ fun ScreenJarak(navController: NavController) {
                 value = kecepatan,
                 onValueChange = { kecepatan = it },
                 label = { Text(text = stringResource(R.string.kecepatan)) },
-                trailingIcon = { IconPicker(kecepatanError, "km/jam") },
+                trailingIcon = { IconPicker(kecepatanError, kmjamText) },
                 supportingText = { ErrorHint(kecepatanError) },
                 isError = kecepatanError,
                 singleLine = true,
@@ -373,7 +384,7 @@ fun ScreenJarak(navController: NavController) {
                 value = waktu,
                 onValueChange = { waktu = it },
                 label = { Text(text = stringResource(R.string.waktu)) },
-                trailingIcon = { IconPicker(waktuError, "jam") },
+                trailingIcon = { IconPicker(waktuError, jamText) },
                 supportingText = { ErrorHint(waktuError) },
                 isError = waktuError,
                 singleLine = true,
@@ -438,6 +449,9 @@ fun ScreenWaktu(navController: NavController) {
 
     val context = LocalContext.current
 
+    val kmText = stringResource(id = R.string.km)
+    val kmjamText = stringResource(id = R.string.km_jam)
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -485,7 +499,7 @@ fun ScreenWaktu(navController: NavController) {
                 value = jarak,
                 onValueChange = { jarak = it },
                 label = { Text(text = stringResource(R.string.jarak)) },
-                trailingIcon = { IconPicker(jarakError, "km") },
+                trailingIcon = { IconPicker(jarakError, kmText) },
                 supportingText = { ErrorHint(jarakError) },
                 isError = jarakError,
                 singleLine = true,
@@ -499,7 +513,7 @@ fun ScreenWaktu(navController: NavController) {
                 value = kecepatan,
                 onValueChange = { kecepatan = it },
                 label = { Text(text = stringResource(R.string.kecepatan)) },
-                trailingIcon = { IconPicker(kecepatanError, "km/jam") },
+                trailingIcon = { IconPicker(kecepatanError, kmjamText) },
                 supportingText = { ErrorHint(kecepatanError) },
                 isError = kecepatanError,
                 singleLine = true,

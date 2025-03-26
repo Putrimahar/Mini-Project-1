@@ -1,29 +1,31 @@
 <resources>
     <string name="app_name">Mini Project 1</string>
-    <string name="app_intro">Rumus kecepatan, jarak, dan waktu ini membantu dalam menganalisis
-    pergerakan suatu objek. Cobalah sekarang!</string>
-    <string name="jarak">Jarak</string>
-    <string name="waktu">Waktu</string>
-    <string name="kecepatan">Kecepatan</string>
-    <string name="hitung">Hitung</string>
-    <string name="menghitung_kecepatan">Menghitung Kecepatan</string>
-    <string name="menghitung_jarak">Menghitung Jarak</string>
-    <string name="menghitung_waktu">Menghitung Waktu</string>
-    <string name="hasilKecepatan_x">Hasil: \n%1$.2f km/jam</string>
-    <string name="hasilJarak_x">Hasil: \n%1$.2f km</string>
-    <string name="hasilWaktu_x">Hasil: \n%1$.2f jam</string>
-    <string name="input_invalid">Tidak Boleh Kosong</string>
-    <string name="bagikan">Bagikan</string>
-    <string name="bagikan_hasilKecepatan">Jarak: %1$s km\nWaktu: %2$s jam\nKecepatan yang diperlukan: %3$.2f km/jam</string>
-    <string name="bagikan_hasiljarak">Kecepatan: %1$s km/jam\nWaktu: %2$s jam\nJarak tempuh yang diperlukan: %3$.2f km</string>
-    <string name="bagikan_hasilWaktu">Jarak: %1$s km\nKecepatan: %2$s km/jam\nWaktu tempuh yang diperlukan: %3$.2f jam</string>
-    <string name="tentang_rumus">Penjelasan</string>
-    <string name="isi_penjelasan">Gambar ini menunjukkan ilustrasi sebuah mobil yang bergerak dari titik A ke titik B di sepanjang jalur lurus. Selain itu, terdapat ikon jam yang menunjukkan waktu perjalanan.
-        \n- Mobil yang bergerak dari A ke B menunjukkan bahwa kendaraan memiliki jarak tempuh tertentu.
-        \n- Jam menunjukkan adanya waktu tempuh yang digunakan oleh mobil untuk berpindah posisi.
-        \n- Dengan mengetahui jarak dan waktu, kita bisa menghitung kecepatan menggunakan rumus di bawah ini.</string>
-    <string name="rumus">Kecepatan = Jarak/Waktu\nJarak = Kecepatan x Waktu\nWaktu = Jarak/Kecepatan</string>
-    <string name="kembali">Kembali</string>
-
-
+    <string name="app_intro">This speed, distance and time formula helps in analyzing the movement of an object. Try it now!</string>
+    <string name="jarak">Distance</string>
+    <string name="waktu">Time</string>
+    <string name="kecepatan">Speed</string>
+    <string name="hitung">Count</string>
+    <string name="km_jam">km/h</string>
+    <string name="km">km</string>
+    <string name="jam">hour</string>
+    <string name="pilih_rumus">Choose Formula</string>
+    <string name="menghitung_kecepatan">Calculating Speed</string>
+    <string name="menghitung_jarak">Calculating Distance</string>
+    <string name="menghitung_waktu">Calculating Time</string>
+    <string name="hasilKecepatan_x">Result: \n%1$.2f km/h</string>
+    <string name="hasilJarak_x">Result: \n%1$.2f km</string>
+    <string name="hasilWaktu_x">Result: \n%1$.2f hour</string>
+    <string name="input_invalid">Cannot be empty</string>
+    <string name="bagikan">Share</string>
+    <string name="bagikan_hasilKecepatan">Distance: %1$s km\nTime: %2$s hour\nRequired speed: %3$.2f km/h</string>
+    <string name="bagikan_hasiljarak">Speed: %1$s km/h\nTime: %2$s hour\nRequired mileage: %3$.2f km</string>
+    <string name="bagikan_hasilWaktu">Distance: %1$s km\nSpeed: %2$s km/h\nRequired travel time: %3$.2f hour</string>
+    <string name="tentang_rumus">Explanation</string>
+    <string name="isi_penjelasan">This image shows an illustration of a car moving from point A to point B
+        along a straight path. In addition, there is a clock icon that shows the travel time.
+        \n- The clock shows the travel time used by the car to change position.
+        \n- A car moving from A to B shows that the vehicle has traveled a certain distance.
+        \n- By knowing the distance and time, we can calculate the speed using the formula below.</string>
+    <string name="rumus">Speed = Distance/Time\nDistance = Speed x Time\nTime = Distance/Speed</string>
+    <string name="kembali">Return</string>
 </resources>
