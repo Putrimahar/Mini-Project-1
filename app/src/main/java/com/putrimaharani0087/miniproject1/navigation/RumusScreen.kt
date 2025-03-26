@@ -35,13 +35,13 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.putrimaharani0087.miniproject1.R
-import com.putrimaharani0087.miniproject1.model.gambar
+import com.putrimaharani0087.miniproject1.model.Gambar
 import com.putrimaharani0087.miniproject1.ui.theme.MiniProject1Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RumusScreen(navController: NavHostController) {
-    val data = gambar(R.drawable.gambar_rumus)
+    val data = Gambar(R.drawable.gambar_rumus)
     Scaffold (
         topBar = {
             TopAppBar(
